@@ -144,6 +144,12 @@ flowchart TB
 
 ## 📝 Upload Project masing-masing di Github dan demonstrasikan pada waktu UTS (20 poin)
 
+| 🔗 Tautan Demo | Alamat |
+| --- | --- |
+| 👤 Akun GitHub (Ketua — Jihan Galuh Putri) | [github.com/JihanGaluhPutri](https://github.com/JihanGaluhPutri) |
+| 📂 Repository STOKITA | [github.com/JihanGaluhPutri/STOKITA](https://github.com/JihanGaluhPutri/STOKITA) |
+| 🌐 Demo live (Vercel) | [stokita-taupe.vercel.app](https://stokita-taupe.vercel.app) |
+
 - 📂 **Repository GitHub:** https://github.com/JihanGaluhPutri/STOKITA.git
   (kode, dokumentasi, dan migrasi SQL terunggah pada branch `main`).
 - 🌐 **Deployment (live):** https://stokita-taupe.vercel.app — siap didemonstrasikan
@@ -269,7 +275,8 @@ Ringkasan penjualan harian dan filter tanggal memakai zona waktu
 **Analisis & Pengujian Sistem · IF7A · STOKITA**
 menganalisis · merancang · mengimplementasikan · menguji
 
-[![Repo](https://img.shields.io/badge/GitHub-JihanGaluhPutri%2FSTOKITA-181717?logo=github)](https://github.com/JihanGaluhPutri/STOKITA)
+[![Akun GitHub](https://img.shields.io/badge/👤%20Akun-GitHub%20%40JihanGaluhPutri-181717?logo=github&logoColor=white)](https://github.com/JihanGaluhPutri)
+[![Repo](https://img.shields.io/badge/📂%20Repo-JihanGaluhPutri%2FSTOKITA-181717?logo=github)](https://github.com/JihanGaluhPutri/STOKITA)
 [![Live](https://img.shields.io/badge/🌐%20stokita--taupe.vercel.app-Live-brightgreen)](https://stokita-taupe.vercel.app)
 
 </div>
