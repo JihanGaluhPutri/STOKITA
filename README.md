@@ -217,6 +217,7 @@ Rincian tabel, ERD, fungsi, dan konsistensi:
 
 ## 📖 Daftar Dokumentasi
 
+- 👤 [`docs/USER_GUIDE.md`](docs/USER_GUIDE.md) — panduan pengguna (admin & kasir)
 - 🔐 [`docs/API_AND_SECURITY.md`](docs/API_AND_SECURITY.md) — API aplikasi (Server Action & RPC) dan keamanan
 - 🏛️ [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — arsitektur, alur, temuan
 - 🗄️ [`docs/DATABASE_AND_STATE.md`](docs/DATABASE_AND_STATE.md) — skema, RLS, state
