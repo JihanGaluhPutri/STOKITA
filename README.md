@@ -37,7 +37,7 @@ dengan keamanan berlapis (RLS, otorisasi role, fungsi transaksi database atomik)
 👥 **Anggota:**
 
 - 👤 NIA AMELIA — 23EO10035
-- 👤 ZAKIYATURROHMAH — 23EO10014
+- 👤 ZAKIYATURROHMAH — 23EO10015
 - 👤 ERSA KINANTI APRILLIA — 23EO10040
 - 👤 EMALIA NURHAYATI — 23E010046
 
