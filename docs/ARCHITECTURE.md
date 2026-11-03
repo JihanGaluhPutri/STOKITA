@@ -237,8 +237,11 @@ Redirect `?ok=…` hanya dikirim **setelah** operasi server sukses.
 3. **`src/lib/supabase/client.ts` (helper klien browser) tidak dipakai**
    komponen mana pun — semua data via Server Component/Action. Kandidat
    pembersihan, bukan kebutuhan fungsional.
-4. **Tanpa test suite otomatis**; verifikasi berjalan lewat lint, typecheck,
-   build, dan pengujian manual/terotomasi sementara (tidak disimpan di repo).
+4. **Test suite tersedia tetapi belum berjalan otomatis**: unit testing dengan
+   Vitest ([UNIT_TESTING.md](UNIT_TESTING.md)) dan BDD/integration testing
+   dengan Playwright — 19 skenario end-to-end
+   ([BDD_TESTING.md](BDD_TESTING.md)) — dijalankan lokal lewat
+   `npm test` / `npm run test:bdd`; belum terhubung ke CI (lihat butir 6).
 5. **Riwayat dibatasi 100 baris terbaru** tanpa paginasi.
 6. **Tidak ada CI/CD, monitoring, atau backup otomatis** yang terkonfigurasi
    di repository ini — lihat

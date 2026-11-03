@@ -182,6 +182,9 @@ flowchart TB
 | 🚀 `npm run start` | jalankan build production |
 | 🔎 `npm run typecheck` | pemeriksaan TypeScript (`tsc --noEmit`) |
 | 🧹 `npm run lint` | ESLint |
+| ✅ `npm test` | unit testing (Vitest) |
+| 🎯 `npm run test:bdd` | BDD/integration testing end-to-end (Playwright, 19 skenario) |
+| 📊 `npm run test:bdd:report` | laporan HTML hasil BDD testing |
 | 👥 `npm run seed:accounts` | buat/selaraskan 1 admin + 2 kasir via Supabase Auth (idempoten) |
 
 ### Variabel Lingkungan
@@ -218,6 +221,8 @@ Rincian tabel, ERD, fungsi, dan konsistensi:
 ## 📖 Daftar Dokumentasi
 
 - 👤 [`docs/USER_GUIDE.md`](docs/USER_GUIDE.md) — panduan pengguna (admin & kasir)
+- 🧪 [`docs/UNIT_TESTING.md`](docs/UNIT_TESTING.md) — unit testing (Vitest)
+- 🎯 [`docs/BDD_TESTING.md`](docs/BDD_TESTING.md) — BDD & integration testing (Playwright), termasuk cara menjalankan & lampiran
 - 🔐 [`docs/API_AND_SECURITY.md`](docs/API_AND_SECURITY.md) — API aplikasi (Server Action & RPC) dan keamanan
 - 🏛️ [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — arsitektur, alur, temuan
 - 🗄️ [`docs/DATABASE_AND_STATE.md`](docs/DATABASE_AND_STATE.md) — skema, RLS, state
