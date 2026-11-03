@@ -206,7 +206,8 @@ Serenitas/kebersihan data dipastikan setelah run (lihat §3.3).
 4. **Belum mencakup** reset password, filter tanggal riwayat, dan batas 100
    baris — kandidat skenario berikutnya.
 
-Dokumen terkait: [UNIT_TESTING.md](UNIT_TESTING.md),
+Dokumen terkait: [BDD_RANGKUMAN.md](BDD_RANGKUMAN.md) (rangkuman belajar &
+presentasi), [UNIT_TESTING.md](UNIT_TESTING.md),
 [USE_CASE_AND_FLOW.md](USE_CASE_AND_FLOW.md),
 [USER_GUIDE.md](USER_GUIDE.md),
 [ARCHITECTURE.md](ARCHITECTURE.md).
