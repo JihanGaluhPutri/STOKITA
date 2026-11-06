@@ -182,9 +182,11 @@ flowchart TB
 | 🚀 `npm run start` | jalankan build production |
 | 🔎 `npm run typecheck` | pemeriksaan TypeScript (`tsc --noEmit`) |
 | 🧹 `npm run lint` | ESLint |
-| ✅ `npm test` | unit testing (Vitest) |
+| ✅ `npm test` | unit testing (Vitest, 66 file / 467 kasus) |
+| 📈 `npm run test:coverage` | unit testing + laporan coverage (`coverage/`, 98,73%) |
 | 🎯 `npm run test:bdd` | BDD/integration testing end-to-end (Playwright, 19 skenario) |
 | 📊 `npm run test:bdd:report` | laporan HTML hasil BDD testing |
+| 🔍 `npm run sonar` | coverage + static code analysis SonarQube lokal (lihat [`docs/SONARQUBE.md`](docs/SONARQUBE.md)) |
 | 👥 `npm run seed:accounts` | buat/selaraskan 1 admin + 2 kasir via Supabase Auth (idempoten) |
 
 ### Variabel Lingkungan
@@ -224,6 +226,7 @@ Rincian tabel, ERD, fungsi, dan konsistensi:
 - 🧪 [`docs/UNIT_TESTING.md`](docs/UNIT_TESTING.md) — unit testing (Vitest)
 - 🎯 [`docs/BDD_TESTING.md`](docs/BDD_TESTING.md) — BDD & integration testing (Playwright), termasuk cara menjalankan & lampiran
 - 📚 [`docs/BDD_RANGKUMAN.md`](docs/BDD_RANGKUMAN.md) — rangkuman belajar & bahan presentasi BDD (konsep, arsitektur, demo, tanya jawab)
+- 🔍 [`docs/SONARQUBE.md`](docs/SONARQUBE.md) — static code analysis SonarQube (cara menjalankan, hasil, rating A, coverage 96,9%)
 - 🔐 [`docs/API_AND_SECURITY.md`](docs/API_AND_SECURITY.md) — API aplikasi (Server Action & RPC) dan keamanan
 - 🏛️ [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — arsitektur, alur, temuan
 - 🗄️ [`docs/DATABASE_AND_STATE.md`](docs/DATABASE_AND_STATE.md) — skema, RLS, state

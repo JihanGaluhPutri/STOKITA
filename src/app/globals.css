@@ -411,6 +411,16 @@ table.data {
   z-index: 100;
 }
 
+/* Tombol backdrop native: menangkap klik area di luar dialog */
+.confirm-backdrop {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  inset: 0;
+  padding: 0;
+  position: absolute;
+}
+
 .confirm-dialog {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -422,7 +432,9 @@ table.data {
   max-width: 440px;
   overflow-y: auto;
   padding: 20px;
+  position: relative;
   width: 100%;
+  z-index: 1;
 }
 
 .confirm-title {

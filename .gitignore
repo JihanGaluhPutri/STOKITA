@@ -27,5 +27,11 @@ test-results/
 playwright-report/
 blob-report/
 
+# Coverage test (diregenerasi dengan `npm test -- --coverage`)
+coverage/
+
+# Artefak analisis SonarQube (sonar-scanner)
+.scannerwork/
+
 .vercel
 .env*
