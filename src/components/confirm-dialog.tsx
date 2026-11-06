@@ -59,12 +59,17 @@ export function ConfirmDialog({
   if (!open) return null;
 
   return (
-    <div
-      className="confirm-overlay"
-      onMouseDown={(event) => {
-        if (event.target === event.currentTarget && !busy) onCancel();
-      }}
-    >
+    <div className="confirm-overlay">
+      {/* Backdrop native (button) agar lolos aturan aksesibilitas
+          typescript:S6848 — elemen non-native interaktif dilarang. */}
+      <button
+        type="button"
+        className="confirm-backdrop"
+        aria-label="Tutup dialog"
+        onClick={() => {
+          if (!busy) onCancel();
+        }}
+      />
       <div
         className="confirm-dialog"
         role="dialog"

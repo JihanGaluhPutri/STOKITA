@@ -1,7 +1,10 @@
 # Dokumen Unit Testing — STOKITA
 
 **Framework:** Vitest `5.x` · **Konfigurasi:** `vitest.config.mts` · **Jalur:** `npm test`
-**Hasil:** 6 file test · **66 kasus uji · seluruhnya lolos** · typecheck, lint, dan build tetap bersih.
+**Hasil (kini):** **66 file test · 467 kasus uji · seluruhnya lolos** · coverage **98,73% (940/952 statements)** · lint & typecheck bersih.
+> Dokumen ini ditulis saat rilis pertama (**6 file test · 66 kasus** — tabel di bawah tetap valid
+> untuk cakupan logika murni). Sejak itu suite diperluas ke services, server actions, lib/types,
+> komponen, dan seluruh halaman — metrik gabungannya ada di [`docs/SONARQUBE.md`](SONARQUBE.md).
 
 ---
 
