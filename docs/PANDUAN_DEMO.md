@@ -60,6 +60,9 @@ npm install
 
 ## 2. Alur Demo Kronologis (script bicara disertakan)
 
+> **Mau jalankan semuanya lewat Terminal VS Code?** Ikuti saja urutan nomor di **§2A** —
+> semua perintah di bawah ini sama, hanya tempat mengetiknya yang di terminal VS Code.
+
 ### Tahap 1 — Linter & Typecheck (≈1 menit)
 ```powershell
 npm run lint
@@ -120,6 +123,68 @@ Login **admin** (cek `docs/USER_GUIDE.md` untuk kredensial) → tunjukkan dashbo
 - **PR #4** (merged): 467 unit test + integrasi SonarQube — https://github.com/JihanGaluhPutri/STOKITA/pull/4
 - **PR #3** (merged): upgrade Next.js 16.4.0 → **16.4.4** → alasan nilai Security
 - Dokumen: `docs/SONARQUBE.md` (+ 4 screenshot hasil analisis), `docs/UNIT_TESTING.md`, `docs/BDD_RANGKUMAN.md`
+
+---
+
+## 2A. Jalur Khusus: Menjalankan Semua lewat Terminal VS Code
+
+Cocok kalau dosen berkata: *"jalankan lewat terminal VS Code saja"*.
+
+### A. Buka & siapkan
+1. **Buka folder proyek di VS Code**: `File → Open Folder… → C:\Users\HP\Downloads\STOKITA`
+   (kalau VS Code sudah terbuka di folder STOKITA, langkah ini lewati).
+2. **Buka terminal bawaan**: tekan **`` Ctrl + ` ``** (Ctrl + tombol di atas tombol Esc),
+   atau menu `Terminal → New Terminal`. Panel terminal muncul di bawah.
+   - **Tab terminal baru:** ikon **`+`** di panel terminal.
+   - **Split (2 terminal berdampingan):** ikon **`▢`** di pojok kanan atas panel.
+   - **Ganti tab:** ikon panah **`⌄`** di panel terminal.
+3. Pastikan lokasinya benar — baris prompt harus `PS C:\Users\HP\Downloads\STOKITA>`.
+   Kalau belum: `cd C:\Users\HP\Downloads\STOKITA`
+4. (Sekali per sesi, kalau belum yakin dependency terbaru) `npm install`
+
+### B. Urutan perintah — ketik satu per satu, lihat "hasil yang benar"
+
+| # | Ketik | Hasil yang benar (tanda sukses) |
+| --- | --- | --- |
+| 1 | `git log --oneline -1` | commit merge terbaru (PR #3/#4) — *opsional* |
+| 2 | `npm run lint` | kembali ke prompt **tanpa error** (hanya header `> eslint .`) |
+| 3 | `npm run typecheck` | kembali ke prompt **tanpa output** = 0 error |
+| 4 | `npm test` | `Test Files 66 passed (66)` dan `Tests 467 passed (467)` (±2 menit) |
+| 5 | `npm run test:coverage` | tabel coverage + baris `All files … 98.73 … 99.23` |
+| 6 | `start coverage\lcov-report\index.html` | browser terbuka → laporan coverage visual |
+| 7 | `npm run test:bdd` | `19 passed` (Playwright; **otomatis menyalakan server app** di :3000) |
+| 8 | `npm run test:bdd:report` | browser terbuka → laporan HTML BDD (video + screenshot) |
+| 9 | `start http://localhost:9000/dashboard?id=stokita` | dashboard SonarQube terbuka → Quality Gate **Passed** |
+
+> **Split terminal untuk demo aplikasi:** buka tab terminal kedua (ikon `+` atau split `▢`),
+> lalu jalankan `npm run dev` → aplikasi di http://localhost:3000. Terminal pertama tetap
+> dipakai untuk perintah test, jadi keduanya bisa berjalan bersamaan.
+
+### C. Kalau diminta *scan ulang SonarQube* dari terminal VS Code
+PowerShell (terminal default VS Code di Windows) — dua baris ini:
+```powershell
+$env:SONAR_TOKEN = "<token analisis Anda>"
+npm run sonar
+```
+Tunggu `ANALYSIS SUCCESSFUL … http://localhost:9000/dashboard?id=stokita` (±1–2 menit),
+lalu refresh dashboard di browser. Kalau token lupa: buat baru via UI SonarQube
+→ avatar → **Security** → **Generate Tokens** → **Global Analysis Token**.
+
+### D. Kalau ada error di tengah jalan
+- **`Cannot find module` / dependency aneh** → `npm install` lalu ulangi perintahnya.
+- **`EADDRINUSE :3000`** → ada server lama: `Get-NetTCPConnection -LocalPort 3000` → `Stop-Process -Id <Id proses>` lalu `npm run dev` ulang.
+- **localhost:9000 terbuka tapi kosong/404** → bukan alamatnya, pakai `/dashboard?id=stokita`; kalau benar-benar mati → jalankan ulang `StartSonar.bat`.
+- **BDD gagal soal password/env** → cek `.env.local` terisi (`STOKITA_ADMIN_PASSWORD`, `STOKITA_KASIR1_PASSWORD`).
+- **Salah ketik** → tekan **↑** untuk memanggil perintah sebelumnya; **Ctrl+C** membatalkan perintah yang sedang jalan.
+
+### E. Katakan apa setelah tiap perintah
+| Setelah | Kalimat singkat |
+| --- | --- |
+| `npm run lint` | *"Linter bersih — 0 error, 0 warning."* |
+| `npm test` | *"467 unit test di 66 file, seluruhnya lulus."* |
+| `test:coverage` | *"Coverage 98,73% — di atas target 80%."* |
+| `test:bdd` | *"19 skenario end-to-end BDD lulus, server aplikasi otomatis ikut dijalankan."* |
+| dashboard SonarQube | *"Quality Gate Passed; Reliability, Security, Maintainability semuanya A; coverage 96,9%; 0 open issue."* |
 
 ---
 
