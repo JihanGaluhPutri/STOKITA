@@ -1,8 +1,8 @@
 # 🎬 Panduan Demo Final Project — STOKITA
 
 **Durasi ideal:** 10–15 menit · **Branche/demo di:** `main` @ hasil merge PR #1–#4
-**Kriteria:** Unit Test (W) · Linter (W) · Integration Testing Playwright · SonarQube (W)
-**Penilaian:** Reliability A · Maintainability A · Security A · Coverage ≥80% (opsional ✅)
+**Kriteria resmi:** Unit Test (W) · Linter (W) · Integration Testing (Opsional) · SonarQube (W)
+**Penilaian:** Reliability A · Maintainability A · Security A · Coverage ≥80% (Opsional)
 
 ---
 
@@ -12,13 +12,50 @@
 | --- | --- | --- |
 | Unit Test (Wajib) | **66 file · 467 test lulus · coverage 98,73%** | `npm test` / `npm run test:coverage` |
 | Linter (Wajib) | **0 error, 0 warning** + typecheck 0 error | `npm run lint` · `npm run typecheck` |
-| Integration Playwright | **19 skenario BDD lulus** (5 fitur) | `npm run test:bdd` · `npm run test:bdd:report` |
+| **Integration Testing (Opsional — nilai plus)** | **19 skenario BDD lulus** (5 fitur) | `npm run test:bdd` · `npm run test:bdd:report` |
 | SonarQube (Wajib) | **Quality Gate Passed · A/A/A · Coverage 96,9%** | http://localhost:9000/dashboard?id=stokita |
 | Reliability A | 0 bug, 0 open issue | dashboard → tab Overall Code |
 | Maintainability A | 0 code smell | dashboard → tab Overall Code |
 | Security A | 0 vulnerability + `npm audit` 0 vulnerability | dashboard + PR #3 (Next.js 16.4.4) |
 | Coverage ≥80% | **96,9%** (Sonar) / **98,73%** (Vitest) | `coverage/lcov-report/index.html` |
 | Kelengkapan dokumen | PR merged + dokumentasi | PR #4 · `docs/SONARQUBE.md` |
+
+---
+
+## 0B. 🎯 Skrip Demo 10 Menit (urutan persis kriteria resmi)
+
+> Hafalkan baris **Ketik** dan **katakan** — sisanya detail. Total ±10 menit.
+
+**Pembuka (30 detik):**
+> *"Saya demo 4 kriteria: unit test, linter, integration testing (opsional), dan integrasi
+> SonarQube — hasil akhirnya: Quality Gate Passed, Reliability A, Maintainability A,
+> Security A, dan coverage 96,9%."*
+
+| Menit | Kriteria | Ketik | Hasil yang benar | Katakan |
+| --- | --- | --- | --- | --- |
+| 0–2 | **1. Unit Test (W)** | `npm test` | `Test Files 66 passed (66)` · `Tests 467 passed (467)` | *"467 unit test di 66 file — services, actions, lib, komponen, halaman — semuanya lulus."* |
+| 2–3 | **1. Coverage (opsional)** | `npm run test:coverage` → `start coverage\lcov-report\index.html` | tabel `All files … 98.73` + laporan terbuka | *"Coverage 98,73% — jauh di atas syarat 80%."* |
+| 3–4 | **2. Linter (W)** | `npm run lint` lalu `npm run typecheck` | dua-duanya kembali ke prompt **tanpa error** | *"ESLint 0 error 0 warning, TypeScript 0 error."* |
+| 4–7 | **3. Integration (opsional)** | `npm run test:bdd` lalu `npm run test:bdd:report` | `19 passed` + laporan HTML terbuka | *"Bonus: 19 skenario end-to-end Playwright/BDD lulus — login, CRUD, POS, otorisasi, terekam video."* |
+| 7–10 | **4. SonarQube (W)** + penilaian | `start http://localhost:9000/dashboard?id=stokita` | Quality Gate **Passed** | Lihat kotak di bawah |
+
+**Di dashboard SonarQube — tunjukkan 1 per 1 (kriteria penilaian):**
+1. **Quality Gate: Passed** ✔ (hijau)
+2. Tab **Overall Code** → sebut: **Reliability A** (0 bug) · **Maintainability A** (0 code smell) · **Security A** (0 vulnerability)
+3. **Coverage 96,9%** → *"di atas 80% meskipun kriterianya opsional"*
+4. Menu **Issues** → *"0 temuan terbuka"*
+5. Nilai plus — kisah perbaikan: *"Awalnya ada 1 temuan `S6848` (elemen interaktif non-native di confirm-dialog), saya perbaiki menjadi `<button>` native, scan ulang → 0 temuan, semua A. Detail di `docs/SONARQUBE.md`."*
+
+**Penutup (30 detik):**
+> *"Semua terkirim di PR #4 (merged) — 467 unit test, konfigurasi SonarQube, dan dokumentasi
+> `docs/SONARQUBE.md` beserta screenshot hasil analisis. `npm audit` juga 0 vulnerability."*
+
+**Kalau diminta scan ulang langsung** (PowerShell, ±1,5 menit):
+```powershell
+$env:SONAR_TOKEN = (Get-Content "$env:USERPROFILE\AppData\Local\Temp\opencode\sonar-token.txt" -Raw).Trim()
+& "$env:USERPROFILE\Downloads\sonar-scanner\sonar-scanner-8.3.1.16491-windows-x64\bin\sonar-scanner.bat" "-Dsonar.token=$env:SONAR_TOKEN"
+```
+tunggu `ANALYSIS SUCCESSFUL` → refresh dashboard.
 
 ---
 
