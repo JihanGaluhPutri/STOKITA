@@ -1,5 +1,8 @@
 # 🎬 Panduan Demo Final Project — STOKITA
 
+> 🎤 **Butuh teks yang tinggal dibaca saat demo?** → [`docs/NASKAH_DEMO.md`](NASKAH_DEMO.md)
+> (naskah bicara per tahap + kata penyelamat + tanya jawab)
+
 **Durasi ideal:** 10–15 menit · **Branche/demo di:** `main` @ hasil merge PR #1–#4
 **Kriteria resmi:** Unit Test (W) · Linter (W) · Integration Testing (Opsional) · SonarQube (W)
 **Penilaian:** Reliability A · Maintainability A · Security A · Coverage ≥80% (Opsional)
