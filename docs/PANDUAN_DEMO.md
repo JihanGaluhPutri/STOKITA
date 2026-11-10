@@ -38,6 +38,7 @@
 | 3–4 | **2. Linter (W)** | `npm run lint` lalu `npm run typecheck` | dua-duanya kembali ke prompt **tanpa error** | *"ESLint 0 error 0 warning, TypeScript 0 error."* |
 | 4–7 | **3. Integration (opsional)** | `npm run test:bdd` lalu `npm run test:bdd:report` | `19 passed` + laporan HTML terbuka | *"Bonus: 19 skenario end-to-end Playwright/BDD lulus — login, CRUD, POS, otorisasi, terekam video."* |
 | 7–10 | **4. SonarQube (W)** + penilaian | `start http://localhost:9000/dashboard?id=stokita` | Quality Gate **Passed** | Lihat kotak di bawah |
+| 10–12 | **Presentasi GitHub** | buka **PR #4** → tab *Files changed* → `docs/SONARQUBE.md` | 4 PR merged, 79 file | *"Bukti lengkapnya di GitHub — kode, test, konfigurasi, dan dokumentasi hasil analisis."* (lihat **§2B**) |
 
 **Di dashboard SonarQube — tunjukkan 1 per 1 (kriteria penilaian):**
 1. **Quality Gate: Passed** ✔ (hijau)
@@ -50,12 +51,12 @@
 > *"Semua terkirim di PR #4 (merged) — 467 unit test, konfigurasi SonarQube, dan dokumentasi
 > `docs/SONARQUBE.md` beserta screenshot hasil analisis. `npm audit` juga 0 vulnerability."*
 
-**Kalau diminta scan ulang langsung** (PowerShell, ±1,5 menit):
+**Kalau diminta scan ulang langsung** (PowerShell, ±1,5 menit — sudah teruji jalan):
 ```powershell
 $env:SONAR_TOKEN = (Get-Content "$env:USERPROFILE\AppData\Local\Temp\opencode\sonar-token.txt" -Raw).Trim()
-& "$env:USERPROFILE\Downloads\sonar-scanner\sonar-scanner-8.3.1.16491-windows-x64\bin\sonar-scanner.bat" "-Dsonar.token=$env:SONAR_TOKEN"
+npm run sonar:fast
 ```
-tunggu `ANALYSIS SUCCESSFUL` → refresh dashboard.
+tunggu `ANALYSIS SUCCESSFUL` → refresh dashboard. (Versi lengkap ulang-test dulu: `npm run sonar`, ±3–4 menit.)
 
 ---
 
@@ -92,6 +93,33 @@ npm install
 | 1 | Dashboard SonarQube `http://localhost:9000/dashboard?id=stokita` |
 | 2 | GitHub PR #4 (https://github.com/JihanGaluhPutri/STOKITA/pull/4) + `docs/SONARQUBE.md` |
 | 3 | Laporan coverage / aplikasi :3000 (saat bagian itu dibuka) |
+
+---
+
+## 1A. 🖥️ Persiapan Screen Share Google Meet (H-30)
+
+> ⚠️ **Penting untuk Meet:** `http://localhost:9000` hanya berjalan di laptop **ANDA** —
+> dosen **tidak bisa membuka link SonarQube-nya**. Jadi dashboard **wajib ditunjukkan lewat share layar**,
+> dan cadangan buktinya adalah **screenshot di `docs/SONARQUBE.md`** (dosen bisa membukanya dari GitHub kapan pun).
+
+### Sebelum masuk meeting
+- [ ] **Matikan notifikasi**: Windows → klik jam kanan → **Focus / Do not disturb**; tutup aplikasi WhatsApp/email yang sering muncul.
+- [ ] **Rapikan tab browser** — sisakan 4 tab saja: **Dashboard SonarQube** · **GitHub PR #4** · (siapkan) laporan coverage & laporan BDD. Tutup tab pribadi.
+- [ ] **Zoom browser SonarQube**: tekan `Ctrl + -` sekali-dua kali → kartu **Reliability / Maintainability / Security + Coverage** terlihat sekaligus dalam satu layar (grid-nya 3 kolom, default agak lebar).
+- [ ] **Perbesar teks terminal VS Code**: `Ctrl + +` (atau Settings → Terminal → Font Size: **15**) supaya hasil test terbaca jelas saat di-share.
+- [ ] **Atur posisi jendela**: VS Code di **kiri**, browser di **kanan** → perpindahan mulus tanpa kehilangan fokus share.
+- [ ] **Uji share 30 detik** sebelum dosen masuk: Meet → *Present now* → pilih layar → Stop present.
+
+### Saat presentasi di Meet
+1. Klik **Present now / Bagikan sekarang** → pilih **"Your entire screen / Seluruh layar"** — paling fleksibel karena demo bolak-balik: terminal VS Code → browser coverage → laporan BDD → dashboard SonarQube → GitHub. (Pilih *"A window"* hanya kalau dosen minta fokus ke satu aplikasi.)
+2. **Matikan share audio** (tidak diperlukan).
+3. Kalau dosen bilang *"layarnya blank/freeze"* → klik banner **"You are presenting"** → **Stop sharing** → **Present** ulang.
+4. **Kalimat pembuka:** *"Saya share layar ya — SonarQube-nya berjalan di server lokal laptop saya, jadi harus lewat layar; nanti saya kirim link buktinya di chat."*
+5. **Tempel di chat Meet saat penutup** (biar dosen bisa memverifikasi sendiri):
+   - Repo: `https://github.com/JihanGaluhPutri/STOKITA`
+   - PR #4 (pengiriman final): `https://github.com/JihanGaluhPutri/STOKITA/pull/4`
+   - Dokumen hasil SonarQube + screenshot: `https://github.com/JihanGaluhPutri/STOKITA/blob/main/docs/SONARQUBE.md`
+   - Dokumen lain: `docs/UNIT_TESTING.md` · `docs/BDD_TESTING.md` · `docs/PANDUAN_DEMO.md`
 
 ---
 
@@ -143,10 +171,10 @@ npm run test:bdd:report # buka laporan HTML di browser
    > *"Analisis pertama menemukan 1 temuan `typescript:S6848` (MAJOR) di `confirm-dialog.tsx` — backdrop dialog berupa `<div>` interaktif tanpa dukungan keyboard. Saya perbaiki menjadi `<button type='button' aria-label>` native. Hasil scan ulang: 0 temuan, semua rating naik A. Ceritanya ada di `docs/SONARQUBE.md` bagian 4."*
 6. **Kalau diminta scan ulang di depan dosen:**
    ```powershell
-   $env:SONAR_TOKEN = "<token analisis Anda>"
-   npm run sonar        # = vitest run --coverage && sonar-scanner (±1–2 menit)
+   $env:SONAR_TOKEN = (Get-Content "$env:USERPROFILE\AppData\Local\Temp\opencode\sonar-token.txt" -Raw).Trim()
+   npm run sonar:fast
    ```
-   *Token tidak pernah ditulis di repo.* Kalau lupa/hilang: buat baru di UI SonarQube →
+   *Token dibaca otomatis dari file lokal — jangan ketik `<token analisis Anda>` secara literal, itu hanya contoh.* Token tidak pernah ditulis di repo. Kalau file token hilang: buat baru di UI SonarQube →
    avatar → **Security** → **Generate Tokens** → pilih **Global Analysis Token** → Generate (token muncul sekali, salin).
    Pastikan `sonar.host.url=http://localhost:9000` (sudah benar di `sonar-project.properties`; tanpa itu scanner menunjuk SonarQube Cloud dan berhenti `403`).
 
@@ -198,13 +226,14 @@ Cocok kalau dosen berkata: *"jalankan lewat terminal VS Code saja"*.
 > dipakai untuk perintah test, jadi keduanya bisa berjalan bersamaan.
 
 ### C. Kalau diminta *scan ulang SonarQube* dari terminal VS Code
-PowerShell (terminal default VS Code di Windows) — dua baris ini:
+PowerShell (terminal default VS Code di Windows) — dua baris ini (sudah teruji jalan):
 ```powershell
-$env:SONAR_TOKEN = "<token analisis Anda>"
-npm run sonar
+$env:SONAR_TOKEN = (Get-Content "$env:USERPROFILE\AppData\Local\Temp\opencode\sonar-token.txt" -Raw).Trim()
+npm run sonar:fast
 ```
-Tunggu `ANALYSIS SUCCESSFUL … http://localhost:9000/dashboard?id=stokita` (±1–2 menit),
-lalu refresh dashboard di browser. Kalau token lupa: buat baru via UI SonarQube
+Tunggu `ANALYSIS SUCCESSFUL … http://localhost:9000/dashboard?id=stokita` (±1,5 menit),
+lalu refresh dashboard di browser. Kalau dosen minta test ulang dari nol, ganti baris 2 jadi `npm run sonar` (±3–4 menit).
+Kalau file token hilang: buat baru via UI SonarQube
 → avatar → **Security** → **Generate Tokens** → **Global Analysis Token**.
 
 ### D. Kalau ada error di tengah jalan
@@ -225,6 +254,27 @@ lalu refresh dashboard di browser. Kalau token lupa: buat baru via UI SonarQube
 
 ---
 
+## 2B. 🐙 Presentasi GitHub (±2–3 menit)
+
+Buka `https://github.com/JihanGaluhPutri/STOKITA` (tab sudah disiapkan). Urutan klik + kalimatnya:
+
+| # | Klik | Katakan |
+| --- | --- | --- |
+| 1 | Halaman utama **repo** → tunjukkan README (tabel *Perintah* + *Daftar Dokumentasi*) | *"Semua sudah di-merge ke `main`. README memuat daftar perintah — `npm test`, `npm run test:coverage`, `npm run sonar` — dan 10 dokumen lengkap."* |
+| 2 | **Pull requests → PR #4** (tab *Conversation*) | *"Ini pengiriman utama tugas — **79 file berubah**, sudah di-merge."* |
+| 3 | Tab **Files changed** → tunjukkan sekilas | *"Puluhan file test baru (66 file), infrastruktur mock Supabase, `sonar-project.properties`, script coverage & sonar, `docs/SONARQUBE.md` dengan 4 screenshot, plus perbaikan `confirm-dialog.tsx`."* |
+| 4 | Buka file **`docs/SONARQUBE.md`** → klik salah satu **screenshot** | *"Ini bukti visual hasil analisis: Quality Gate Passed, rating A/A/A, coverage 96,9% — saya perbesar supaya jelas."* |
+| 5 | Kembali ke daftar **Pull requests** | *"Riwayatnya: PR #1 unit test awal, PR #2 BDD Playwright, PR #3 upgrade Next.js 16.4.4 untuk keamanan, PR #4 final — **empat-empatnya merged**."* |
+| 6 | (Penutup) | *"Jadi semua kriteria — unit test, linter, integration testing, SonarQube — ada buktinya di repo: kode, test, konfigurasi, dan dokumentasi hasil analisis."* |
+
+**Kalau internet/GitHub lambat atau gagal dimuat** (fallback lokal — hasilnya sama):
+```powershell
+git log --oneline -12        # riwayat commit di terminal VS Code
+```
+lalu buka `docs/SONARQUBE.md` di VS Code → tekan **`Ctrl + Shift + V`** → preview Markdown lengkap dengan screenshot.
+
+---
+
 ## 3. Tabel Kilat: "Kalau dosen minta X → jalankan Y"
 
 | Permintaan dosen | Perintah / Aksi |
@@ -235,7 +285,8 @@ lalu refresh dashboard di browser. Kalau token lupa: buat baru via UI SonarQube
 | "TypeScript-nya aman?" | `npm run typecheck` |
 | "Jalankan BDD-nya" | `npm run test:bdd` lalu `npm run test:bdd:report` |
 | "Buka hasil SonarQube" | browser → http://localhost:9000/dashboard?id=stokita |
-| "Scan ulang sekarang" | `$env:SONAR_TOKEN="<token>"` lalu `npm run sonar` |
+| "Scan ulang sekarang" | 2 baris: `$env:SONAR_TOKEN = (Get-Content "$env:USERPROFILE\AppData\Local\Temp\opencode\sonar-token.txt" -Raw).Trim()` lalu `npm run sonar:fast` |
+| "Bisa saya buka link-nya?" | **Tidak bisa** (`localhost` hanya di laptop Anda) → share layar, lalu beri link GitHub: PR #4 & `docs/SONARQUBE.md` (berisi screenshot) |
 | "SonarQube tidak bisa dibuka" | jalankan `StartSonar.bat`, tunggu 1–2 menit, cek `/api/system/status` |
 | "Mana bukti di GitHub" | PR #4, PR #3, `docs/SONARQUBE.md` |
 | "Keamanan dependensi" | `npm audit --omit=dev` → **0 vulnerabilities** |
@@ -297,9 +348,11 @@ PR #4 (merged) beserta `docs/SONARQUBE.md` berisi konfigurasi, hasil, dan screen
 ---
 
 ### Checklist 5 Menit Sebelum Demo Dimulai
+- [ ] **Meet:** notifikasi mati (Focus/Do not disturb) · tab browser tinggal 4 tab · zoom browser SonarQube `Ctrl + -` · teks terminal `Ctrl + +`
+- [ ] **SonarQube UP**: http://localhost:9000/api/system/status → `"status":"UP"`
 - [ ] `git log --oneline -1` menunjukkan merge commit terbaru
-- [ ] http://localhost:9000/api/system/status → `"status":"UP"`
 - [ ] `npm run lint` bersih (sudah pasti, tapi biar tenang)
-- [ ] Tab terbuka: dashboard SonarQube · PR #4 · VS Code
+- [ ] Tab terbuka: dashboard SonarQube · GitHub PR #4 · VS Code (kiri) + browser (kanan)
 - [ ] `.env.local` lengkap (kalau tahap demo aplikasi/BDD dipakai)
-- [ ] Laptop terisi daya / colokan siap 😄
+- [ ] Siap tempel ke **chat Meet** saat penutup: link PR #4 + `docs/SONARQUBE.md`
+- [ ] Uji *Present now* 30 detik → Stop → laptop terisi daya / colokan siap 😄
