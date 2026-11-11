@@ -125,6 +125,10 @@
 
 > *"Riwayatnya: PR #1 unit test awal, PR #2 BDD testing, PR #3 upgrade Next.js ke 16.4.4 untuk keamanan — dan `npm audit`-nya juga **0 vulnerability** — lalu PR #4 ini. **Empat-empatnya merged**."*
 
+**[Buka tab Actions → klik run terbaru "Continuous Testing" → tunjukkan semua langkah ✓]**
+
+> *"Dan ini continuous testing-nya — setiap ada push atau pull request, GitHub Actions otomatis menjalankan lint, typecheck, dan seluruh unit test beserta coverage. Semua langkahnya hijau."*
+
 ---
 
 ## ✅ PENUTUP (±30 detik)

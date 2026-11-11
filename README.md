@@ -2,6 +2,8 @@
 
 # 📦 STOKITA — Sistem Informasi Manajemen Stok dan Penjualan Barang
 
+[![Continuous Testing](https://github.com/JihanGaluhPutri/STOKITA/actions/workflows/continuous-testing.yml/badge.svg)](https://github.com/JihanGaluhPutri/STOKITA/actions/workflows/continuous-testing.yml)
+
 **Aplikasi web manajemen stok & penjualan untuk UMKM**
 pengelolaan barang · barang masuk · monitoring stok · Point of Sale kasir · riwayat transaksi
 dengan keamanan berlapis (RLS, otorisasi role, fungsi transaksi database atomik)

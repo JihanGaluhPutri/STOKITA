@@ -268,7 +268,8 @@ Buka `https://github.com/JihanGaluhPutri/STOKITA` (tab sudah disiapkan). Urutan 
 | 3 | Tab **Files changed** → tunjukkan sekilas | *"Puluhan file test baru (66 file), infrastruktur mock Supabase, `sonar-project.properties`, script coverage & sonar, `docs/SONARQUBE.md` dengan 4 screenshot, plus perbaikan `confirm-dialog.tsx`."* |
 | 4 | Buka file **`docs/SONARQUBE.md`** → klik salah satu **screenshot** | *"Ini bukti visual hasil analisis: Quality Gate Passed, rating A/A/A, coverage 96,9% — saya perbesar supaya jelas."* |
 | 5 | Kembali ke daftar **Pull requests** | *"Riwayatnya: PR #1 unit test awal, PR #2 BDD Playwright, PR #3 upgrade Next.js 16.4.4 untuk keamanan, PR #4 final — **empat-empatnya merged**."* |
-| 6 | (Penutup) | *"Jadi semua kriteria — unit test, linter, integration testing, SonarQube — ada buktinya di repo: kode, test, konfigurasi, dan dokumentasi hasil analisis."* |
+| 6 | Tab **Actions** → klik run terbaru **Continuous Testing** → tunjukkan ✓ Linter, ✓ Typecheck, ✓ Unit test + coverage | *"Dan ini continuous testing-nya: setiap push/PR, GitHub Actions otomatis menjalankan lint, typecheck, dan seluruh unit test — semua hijau."* |
+| 7 | (Penutup) | *"Jadi semua kriteria — unit test, linter, integration testing, SonarQube — ada buktinya di repo: kode, test, konfigurasi, dan dokumentasi hasil analisis."* |
 
 **Kalau internet/GitHub lambat atau gagal dimuat** (fallback lokal — hasilnya sama):
 ```powershell
