@@ -230,7 +230,6 @@ Rincian tabel, ERD, fungsi, dan konsistensi:
 - 📚 [`docs/BDD_RANGKUMAN.md`](docs/BDD_RANGKUMAN.md) — rangkuman belajar & bahan presentasi BDD (konsep, arsitektur, demo, tanya jawab)
 - 🔍 [`docs/SONARQUBE.md`](docs/SONARQUBE.md) — static code analysis SonarQube (cara menjalankan, hasil, rating A, coverage 96,9%)
 - 🎬 [`docs/PANDUAN_DEMO.md`](docs/PANDUAN_DEMO.md) — panduan demo final project (persiapan, kronologi, troubleshooting, tanya jawab)
-- 🎤 [`docs/NASKAH_DEMO.md`](docs/NASKAH_DEMO.md) — naskah bicara siap baca saat demo (timing, aba-aba layar, kata penyelamat, tanya jawab)
 - 🔐 [`docs/API_AND_SECURITY.md`](docs/API_AND_SECURITY.md) — API aplikasi (Server Action & RPC) dan keamanan
 - 🏛️ [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — arsitektur, alur, temuan
 - 🗄️ [`docs/DATABASE_AND_STATE.md`](docs/DATABASE_AND_STATE.md) — skema, RLS, state
